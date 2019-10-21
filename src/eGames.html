@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Elementary Games</title>
+
+  <style media="screen">
+    .tFooter {
+      text-align: center;
+      padding-bottom: 5px;
+    }
+
+    .buttonS {
+      padding-top: 32px;
+      padding-left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div name="logo">
+
+    <img src="../img/logo.png" class="rounded mx-auto d-block" height="150px">
+
+    <div class="col">
+
+
+      <navBar class="col-md-10">
+        <ul class="nav nav-tabs">
+          <li class="nav-item" id="new-game">
+            <a class="nav-link" href="../src/eGames.html">Nuevo juego</a>
+          </li>
+          <li class="nav-item" id="list-game">
+            <a class="nav-link" href="../src/lGames.html">Lista de juegos</a>
+          </li>
+          <li class="nav-item" id="list-player">
+            <a class="nav-link" href="../src/lPlayers.html">Lista de jugadores</a>
+          </li>
+        </ul>
+      </navBar>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="row align-items-start">
+      <div class="col">
+
+
+
+        <div id="carouselExampleFade" class="carousel slide " data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="10000">
+              <img src="../img/gears5.jpg" class="d-block w-100" height="550px" width="450px">
+            </div>
+            <div class="carousel-item">
+              <img src="../img/battlefront2.jpg" class="d-block w-100" height="550px" width="450px">
+            </div>
+            <div class="carousel-item">
+              <img src="../img/fifa20.jpg" class="d-block w-100" height="550px" width="450px">
+            </div>
+            <div class="carousel-item">
+              <img src="../img/rdr2.jpg" class="d-block w-100" height="550px" width="450px">
+            </div>
+            <div class="carousel-item">
+              <img src="../img/modernWarfare.jpg" class="d-block w-100" height="550px" width="450px">
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <hr>
+
+    <form class="row" name="datesForm" data-toggle="validator">
+
+      <div class="col-md-8">
+        <label for="valid">Nombre del juego:</label>
+        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required>
+        <small id="inputoNombreHelp" class="form-text text-muted">Por ejemplo: Call of Duty, Star Wars, Gears of War</small>
+
+
+      </div>
+      <div class="col-md-4">
+        <label for="inputLanzamiento">Lanzamiento:</label>
+        <input type="date" class="form-control" id="inputLanzamiento" required>
+        <small id="inputLanzamientoHelp" class="form-text text-muted">Selecciona una fecha</small>
+      </div>
+
+
+
+
+      <div class="col-md-8">
+        <label for="inputDeveloper">Desarrollador:</label>
+        <input type="text" class="form-control" id="inputDeveloper" placeholder="Desarrollador" required>
+        <small id="inputoNombreHelp" class="form-text text-muted">Por ejemplo: EA, Bethesda, Activision</small>
+      </div>
+
+      <div class="col-md-4">
+        <label for="inputPEGI">PEGI:</label>
+        <select id="inputPEGI" class="form-control" required>
+          <option selected>Elige...</option>
+          <option>+3</option>
+          <option>+7</option>
+          <option>+12</option>
+          <option>+16</option>
+          <option>+18</option>
+        </select>
+        <small id="inputoPegiHelp" class="form-text text-muted">Selecciona una opción</small>
+      </div>
+
+      <div class="col-md-8">
+        <label for="inputGenre">Género:</label>
+        <select id="inputGenre" class="form-control" required>
+          <option selected>Elige...</option>
+          <option>Acción</option>
+          <option>Disparos</option>
+          <option>Estrategia</option>
+          <option>Simulación</option>
+          <option>Deporte</option>
+          <option>Carreras</option>
+          <option>Aventura</option>
+          <option>Rol</option>
+          <select>
+            <small id="inputoGenreHelp" class="form-text text-muted">Selecciona una opción</small>
+      </div>
+
+      <div class="buttonS">
+
+
+        <div class="col-md-4">
+          <button type="button" class="btn btn-outline-primary" onclick="addGame()">Agregar</button>
+        </div>
+      </div>
+      <hr>
+  </div>
+
+
+
+  </form>
+
+
+  <hr>
+
+  <div class="container">
+    <h1>Lista de juegos</h1>
+    <div class="row">
+      <div class="col-md-12">
+
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Título</th>
+              <th scope="col">Lanzamiento</th>
+              <th scope="col">Desarrollador</th>
+              <th scope="col">Pegi</th>
+              <th scope="col">Genero</th>
+            </tr>
+          </thead>
+          <tbody id="content-games"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+
+
+
+
+    <footer class="tFooter"><b>©Elementary Games </b> <cite title="Source Title">tú pagina de videojuegos</cite></footer>
+
+
+
+  </div>
+  <hr>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    //variable global
+    let games = [];
+
+    function validations() {
+
+      valorNombre = document.getElementById("inputNombre").value;
+      if (valorNombre == null || valorNombre.length == 0 || /^\s+$/.test(valorNombre)) {
+        alert("Falta por rellenar el nombre")
+        return false;
+      };
+
+      var year = document.getElementById("inputLanzamiento").value;
+      if (year == null || year == 0) {
+        alert("Selecciona una fecha")
+        return false;
+      };
+
+      valorDeveloper = document.getElementById("inputDeveloper").value;
+      if (valorDeveloper == null || valorDeveloper.lenght == 0 || /^\s+$/.test(valorDeveloper)) {
+        alert("Rellene el campo de Desarrollador")
+        return false;
+      };
+
+      indicePegi = document.getElementById("inputPEGI").selectedIndex;
+      if (indicePegi == null || indicePegi == 0) {
+        alert("Selecciona una opcion de PEGI")
+        return false;
+      };
+
+      indiceGenre = document.getElementById("inputGenre").selectedIndex;
+      if (indiceGenre == null || indiceGenre == 0) {
+        alert("Selecciona una opcion de Genero")
+        return false;
+      };
+
+
+
+      for (let a = 0; a < games.length; a++) {
+        let game1 = games[a];
+        if (game1[1] === valorNombre) {
+          alert("Ya existe ese juego");
+          return false;
+        }
+      };
+
+      return true;
+
+    };
+
+    function addGame() {
+      let nombre = document.getElementById("inputNombre").value;
+      let lanzamiento = document.getElementById("inputLanzamiento").value;
+      let desarrollador = document.getElementById("inputDeveloper").value;
+      let pegi = document.getElementById("inputPEGI")[document.getElementById("inputPEGI").selectedIndex].value;
+      let genero = document.getElementById("inputGenre")[document.getElementById("inputGenre").selectedIndex].value;
+
+      let id = games.length + 1;
+
+      if (validations()) {
+        games.push(
+          [id, nombre, lanzamiento, desarrollador, pegi, genero]
+        );
+
+        printGames(games);
+        document.datesForm.reset();
+      }
+    };
+
+    function printGames(nGames) {
+      let nContainer = document.getElementById("content-games");
+
+      nContainer.innerHTML = " ";
+
+      for (let i = 0; i < nGames.length; i++) {
+        let game = nGames[i];
+
+        nContainer.innerHTML += `
+            <tr>
+             <th scope="row">${game[0]}</th>
+             <td>${game[1]}</td>
+             <td>${game[2]}</td>
+             <td>${game[3]}</td>
+             <td>${game[4]}</td>
+             <td>${game[5]}</td>
+            </tr>
+            `
+      }
+    };
+
+
+    window.onload = function() {
+
+
+      printGames(games);
+
+    };
+  </script>
+</body>
+
+</html>
